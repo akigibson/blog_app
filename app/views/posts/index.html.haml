@@ -1,5 +1,6 @@
 %h1 #{@name}'s Blog
 
+
 - @posts.each do |post|
   
   %h2= link_to post.title, post_path(post.id)
