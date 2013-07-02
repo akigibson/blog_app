@@ -11,7 +11,23 @@ class PostsController < ApplicationController
     @newpost = Post.new(params[:id])
   end
   def create
-    @blogpost = Post.create(params[:id])
-    redirect_to @post
+    @newpost = Post.new(params[:post])
+      if @newpost.save
+        redirect_to @newpost, notice: 'Blog was successfully created.'
+      else
+        render action: 'new'
+      end   
+  end
+  def save
+  end
+  def edit
+    @post = Post.find(params[:id])
+    @post.edit
+    redirect_to posts_path
+  end
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
 end

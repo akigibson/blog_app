@@ -1,9 +1,10 @@
 %h1 #{@name}'s Blog
-
+=link_to 'Create New Post', newpost_path
 
 - @posts.each do |post|
-  
   %h2= link_to post.title, post_path(post.id)
+  %p= link_to 'Edit Post', post, method: :edit, data: {confirm: 'Are you sure?'}
+
 
 
 
