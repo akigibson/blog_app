@@ -18,13 +18,22 @@ class PostsController < ApplicationController
         render action: 'new'
       end   
   end
-  def save
-  end
+
   def edit
     @post = Post.find(params[:id])
-    @post.edit
-    redirect_to posts_path
   end
+
+  def update
+    @post = Post.where(:id => params[:id]).first
+
+
+    if @post.update_attributes(params[:post])
+      redirect_to @post
+    else
+      render action: "edit"
+    end
+  end
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy

@@ -59,6 +59,7 @@ NickBlog::Application.routes.draw do
   get '/post/:id' => 'posts#show', as: 'post'
   get '/posts/new' => 'posts#new', as: 'newpost'
   post '/posts' => 'posts#create', as: 'blogpost'
-  get '/post/:id' => 'posts#edit'
+  get '/post/:id/edit' => 'posts#edit', as: 'postedit'
+  put '/post/:id' => 'posts#update'
   delete '/post/:id' => 'posts#destroy'
 end
