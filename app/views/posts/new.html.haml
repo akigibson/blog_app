@@ -1,12 +1,6 @@
-=form_for @newpost do |f| 
-  = f.label :title
-  = f.text_field :title
-  %br
+%h1 New Post
 
-  = f.label :body
-  = f.text_area :body
-  %br
-  = f.submit
+=render 'form'
 
 =link_to 'Back to Posts', posts_path
 
