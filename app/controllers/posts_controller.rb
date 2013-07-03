@@ -26,8 +26,6 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.where(:id => params[:id]).first
-
-
     if @post.update_attributes(params[:post])
       redirect_to @post
     else
