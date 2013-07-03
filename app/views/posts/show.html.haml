@@ -1,5 +1,6 @@
 %h2= @post.title
 %p= @post.body
 %p= link_to 'Delete Post', @post, :method => :delete, :data => {confirm: 'Are you sure?'}
-
+-if flash[:notice].present?
+  %p=flash[:notice]
 =link_to 'Back to Posts', posts_path

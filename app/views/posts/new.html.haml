@@ -2,6 +2,8 @@
 
 =render 'form'
 
+-if flash[:notice].present?
+  %p=flash[:notice]
 =link_to 'Back to Posts', posts_path
 
 

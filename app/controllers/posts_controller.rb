@@ -13,8 +13,9 @@ class PostsController < ApplicationController
   def create
     @newpost = Post.new(params[:post])
       if @newpost.save
-        redirect_to @newpost, notice: 'Blog was successfully created.'
+        redirect_to @newpost, notice: 'Post was successfully created.'
       else
+        flash[:notice] = 'Please enter in a title and body for your post.'
         render action: 'new'
       end   
   end
